@@ -162,11 +162,37 @@ main {
 
 .dice {
   position: absolute;
+  border-radius: 15px;
   left: 50%;
   top: 16.5rem;
   transform: translateX(-50%);
-  height: 10rem;
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 15px;
+  background-color: var(--strong-green);
+}
+
+.Top,
+.Center,
+.Bot {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: var(--dark-green);
+  border-radius: 50%;
 }
 
 .player--winner {

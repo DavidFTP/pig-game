@@ -1,5 +1,21 @@
 'use strict';
 
+const n = document.querySelectorAll('.dot');
+const hide = () => {
+  for (let i = 0; i < n.length; i++) {
+    if (!n[i].classList.contains('hidden')) n[i].classList.add('hidden');
+  }
+};
+hide();
+
+const center = document.querySelector('.center');
+const topRight = document.querySelector('.topRight');
+const topLeft = document.querySelector('.topLeft');
+const centerLeft = document.querySelector('.centerLeft');
+const centerRight = document.querySelector('.centerRight');
+const botLeft = document.querySelector('.botLeft');
+const botRight = document.querySelector('.botRight');
+
 const newGameBtn = document.querySelector('.btn--new');
 const holdBtn = document.querySelector('.btn--hold');
 const rollDiceBtn = document.querySelector('.btn--roll');
@@ -40,15 +56,59 @@ const updateCurrent = function (roll) {
   }
 };
 
+const die = function (n) {
+  switch (n) {
+    case 1:
+      hide();
+      center.classList.remove('hidden');
+      break;
+    case 2:
+      hide();
+      topLeft.classList.remove('hidden');
+      botRight.classList.remove('hidden');
+      break;
+    case 3:
+      hide();
+      topLeft.classList.remove('hidden');
+      botRight.classList.remove('hidden');
+      center.classList.remove('hidden');
+      break;
+    case 4:
+      hide();
+      topLeft.classList.remove('hidden');
+      topRight.classList.remove('hidden');
+      botLeft.classList.remove('hidden');
+      botRight.classList.remove('hidden');
+      break;
+    case 5:
+      hide();
+      topLeft.classList.remove('hidden');
+      topRight.classList.remove('hidden');
+      botLeft.classList.remove('hidden');
+      botRight.classList.remove('hidden');
+      center.classList.remove('hidden');
+      break;
+    case 6:
+      hide();
+      topLeft.classList.remove('hidden');
+      topRight.classList.remove('hidden');
+      botLeft.classList.remove('hidden');
+      botRight.classList.remove('hidden');
+      centerLeft.classList.remove('hidden');
+      centerRight.classList.remove('hidden');
+      break;
+  }
+};
+
 const diceRoll = function () {
   if (diceImage.classList.contains('hidden'))
     diceImage.classList.remove('hidden');
   const roll = Math.trunc(Math.random() * 6) + 1;
   if (roll !== 1) {
-    diceImage.src = `dice-${roll}.png`;
+    die(roll);
     updateCurrent(roll);
   } else {
-    diceImage.src = 'dice-1.png';
+    die(roll);
     switchPlayers();
   }
 };

@@ -163,12 +163,12 @@ const newGame = function () {
   switchPlayers();
 };
 
-// document.addEventListener('keydown', function (e) {
-//   if (e.key === 'Enter') diceRoll();
-// });
-// document.addEventListener('keydown', function (e) {
-//   if (e.key === ' ') hold();
-// });
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') diceRoll();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === ' ') hold();
+});
 rollDiceBtn.addEventListener('click', diceRoll);
 holdBtn.addEventListener('click', hold);
 newGameBtn.addEventListener('click', newGame);
